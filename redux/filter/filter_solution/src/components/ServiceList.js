@@ -18,22 +18,23 @@ function ServiceList(props) {
 
     const handleFilter = (event) => {
         const {value} = event.target;
-        console.log(value, value.length)
         dispatch(filterServices(value))
-        
-        // написать action FILTER_SERVICES
-        // из input диспатчить текст в state.string
     }
-    console.log(itemsFiltered);
 
     return (
-        <div>
+        <div className='section services-block'>
+            <span className='lable-input'>Filter</span>
             <input name='filter' type="text" onChange={handleFilter}/>
-            <ul>
-            {(itemsFiltered.length > 0 ? itemsFiltered : items).map(o => <li key={o.id}>
-                {o.name}{o.price}
-                <button onClick={() => handleRemove(o.id)}>X</button>
-                <button onClick={() => handleEdit(o.name, o.price, o.id)}>Edit</button>
+            <ul className='services-list'>
+            {(itemsFiltered.length > 0 ? itemsFiltered : items).map(o => <li className='list-item' key={o.id}>
+                <span className='list-item-el'>
+                    {o.name}
+                </span>
+                <span className='list-item-el'>
+                    {o.price}
+                </span>
+                <button className='list-item-el' onClick={() => handleRemove(o.id)}>X</button>
+                <button className='list-item-el' onClick={() => handleEdit(o.name, o.price, o.id)}>Edit</button>
                 </li>)}
             </ul>
         </div>

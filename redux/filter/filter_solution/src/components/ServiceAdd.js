@@ -22,18 +22,19 @@ function ServiceAdd(props) {
         }
     }
 
-    const handleCancel = () => {
+    const handleCancel = (event) => {
+        event.preventDefault();
         dispatch(edittingService())
     }
 
     return (
-        <div>
+        <div className='section'>
             <form onSubmit={handleSubmit}>
-                <input name='name' onChange={handleChange} value={items.name}/>
-                <input name='price' onChange={handleChange} value={items.price}/>
-                <button type='submit'>Save</button>
-            </form>
-            {items.id ? <button onClick={handleCancel}>Cancel</button> : null}
+                <input className='form-block' name='name' onChange={handleChange} value={items.name}/>
+                <input className='form-block' name='price' onChange={handleChange} value={items.price}/>
+                <button className='form-block' type='submit'>Save</button>
+                <button className='cancel-button' hidden={!items.id} onClick={handleCancel}>Cancel</button>
+            </form>   
         </div>
         
     )

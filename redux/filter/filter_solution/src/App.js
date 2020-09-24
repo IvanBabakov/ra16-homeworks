@@ -5,10 +5,10 @@ import ServiceList from './components/ServiceList';
 
 function App() {
   return (
-    <Fragment>
+    <div className='main-wrapper'>
       <ServiceAdd />
       <ServiceList />
-    </Fragment>
+    </div>
   );
 }
 

@@ -23,7 +23,13 @@ export default function serviceListReducer(state = initialState, action) {
         case ADD_SERVICE: 
             const {name, price, changedId} = action.payload;
             if(changedId) {
-                return {...state, items:[...state.items.filter(service => service.id !== changedId), {id: nanoid(), name, price: Number(price)}]};
+                if(state.itemsFiltered.length > 0) {
+                    const listItemsUpdated = [...state.items.filter(service => service.id !== changedId), {id: nanoid(), name, price: Number(price)}];
+                    const listFilteredUpdated = [...state.itemsFiltered.filter(service => service.id !== changedId), {id: nanoid(), name, price: Number(price)}];
+                    return {...state, items:[...listItemsUpdated], itemsFiltered:[...listFilteredUpdated]}
+                } else {
+                    return {...state, items:[...state.items.filter(service => service.id !== changedId), {id: nanoid(), name, price: Number(price)}]};
+                }
             } else {
                 return {...state, items:[...state.items, {id: nanoid(), name, price: Number(price)}]};
             }

@@ -28,6 +28,43 @@
   color: #61dafb;
 }
 
+.main-wrapper {
+  display: inline-block;
+  text-align: center;
+  max-width: 12800px;
+}
+
+.section {
+  max-width: 1200px;
+  margin: 20px;
+}
+
+.form-block {
+  margin-right: 10px;
+}
+
+.services-block {
+  text-align: left;
+}
+
+.services-list {
+  padding-left: 0;
+  text-align: left;
+}
+
+.services-list li {
+  padding-bottom: 10px;
+  list-style-type: none;
+}
+
+.list-item-el {
+  margin-right: 5px;
+}
+
+.lable-input {
+  margin-right: 5px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
