@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {changeServiceField, addServiceSuccess, edittingService, fetchServicesSuccess} from '../actions/actionCreators'
 import PropTypes from 'prop-types'
@@ -27,12 +28,22 @@ function ServiceAdd(props) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input name='name' onChange={handleChange} value={items.name}/>
-                <input name='price' onChange={handleChange} value={items.price}/>
-                <button type='submit'>Save</button>
+                <label className='item-form'>
+                    Название
+                    <input name='name' onChange={handleChange} value={items.name}/>
+                </label>
+                <label className='item-form'>
+                    Стоимость
+                    <input name='price' onChange={handleChange} value={items.price}/>
+                </label>
+                <label className='item-form'>
+                    Описание
+                    <input name='content' onChange={handleChange} value={items.content}/>
+                </label>
+                <button type='submit'>Save</button>    
             </form>
-        </div>
-        
+            <button><Link to='/services'>Cancel</Link></button>
+        </div> 
     )
 }
 

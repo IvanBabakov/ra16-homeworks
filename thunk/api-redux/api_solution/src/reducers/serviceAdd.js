@@ -2,8 +2,10 @@ import {CHANGE_SERVICE_FIELD, EDITTING_SERVICE, ADD_SERVICE_SUCCESS, ADD_SERVICE
 
 const initialState = {
     items: {
+        id: '',
         name: '',
-        price: ''
+        price: '',
+        content: ''
     },
     loading: false,
     error: null

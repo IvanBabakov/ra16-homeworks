@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.main-wrapper {
+  max-width: 1200px;
+  /* text-align: center; */
+}
+
+.main-wrapper form {
+  max-width: 600px;
+}
+
+.item-form {
+  max-width: 300px;
+  display: block;
+  /* text-align: center; */
+}
+
+.item-form input {
+  display: block;
+}
