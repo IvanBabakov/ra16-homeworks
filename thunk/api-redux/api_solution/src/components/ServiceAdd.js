@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Link} from 'react-router-dom';
+import {BrowserRouter as Link, Redirect, NavLink} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {changeServiceField, addServiceSuccess, edittingService, fetchServicesSuccess} from '../actions/actionCreators'
 import PropTypes from 'prop-types'
@@ -42,7 +42,7 @@ function ServiceAdd(props) {
                 </label>
                 <button type='submit'>Save</button>    
             </form>
-            <button><Link to='/services'>Cancel</Link></button>
+            <NavLink exact to='/services'><button>Cancel</button></NavLink>
         </div> 
     )
 }
