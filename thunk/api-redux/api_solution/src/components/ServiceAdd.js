@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {changeServiceField, addServiceSuccess, edittingService, fetchServicesSuccess} from '../actions/actionCreators'
 import PropTypes from 'prop-types'
 
-function ServiceAdd(props) {
+function ServiceAdd({match}) {
     const {items} = useSelector(state => state.serviceAdd);
     
     const dispatch = useDispatch();
@@ -15,11 +15,12 @@ function ServiceAdd(props) {
     }
 
     const handleSubmit = async (event) => {
+        console.log(items)
         event.preventDefault();
          await fetch(process.env.REACT_APP_API_URL, {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify(items)
+            body: JSON.stringify({...items, id: `${match.id}`})
         })
         fetchServicesSuccess(dispatch);
         dispatch(addServiceSuccess());

@@ -35,7 +35,7 @@ function ServiceList({match}) {
             {items.map(o => <li key={o.id}>
                 {o.name}{o.price}
                 <button onClick={() => handleRemove(o.id)}>X</button>
-                <Link to={'services/edit'}>
+                <Link to={`${match.url}/${o.id}`}>
                     <button onClick={() => handleEdit(o.name, o.price, o.id)}>Edit</button>
                 </Link>
                 </li>)}

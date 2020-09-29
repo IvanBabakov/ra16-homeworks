@@ -15,7 +15,7 @@ export default function serviceAddReducer (state = initialState, action) {
     switch (action.type) {
         case CHANGE_SERVICE_FIELD:
             const {name, value} = action.payload;
-            return {...state, items:{[name]: value}};
+            return {...state, items:{...state.items, [name]: value}};
         case ADD_SERVICE_SUCCESS: 
             return {...initialState}
         case ADD_SERVICE_REQUEST:

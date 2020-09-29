@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Redirect from='/' to='/services'/>
       <Route exact path='/services' component={ServiceList}/>
-      <Route exact path='/services/edit' component={ServiceAdd} />
+      <Route exact path='/services/:id' component={ServiceAdd} />
         {/* <ServiceAdd /> */}
         {/* <ServiceList /> */}
     </Router>
