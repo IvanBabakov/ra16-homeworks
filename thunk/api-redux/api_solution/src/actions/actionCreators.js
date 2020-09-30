@@ -12,6 +12,10 @@ export function addServiceError(err) {
     return {type: ADD_SERVICE_ERROR, payload: {err}};
 }
 
+export function edittingService(service) {
+    return {type: EDITTING_SERVICE, payload: {service}}
+}
+
 export function removeService(id) {
     return {type: REMOVE_SERVICE, payload: {id}};
 }

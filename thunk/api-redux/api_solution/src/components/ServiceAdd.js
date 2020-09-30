@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter as Link, Redirect, NavLink} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {changeServiceField, addServiceSuccess, edittingService, fetchServicesSuccess} from '../actions/actionCreators'
@@ -9,20 +9,35 @@ function ServiceAdd({match}) {
     
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        const fetchHandler = async () => {
+        const response = await fetch(process.env.REACT_APP_API_URL+`/${match.params.id}`);
+        const service = await response.json();
+        dispatch(edittingService(service));
+        console.log(service)
+        }
+        fetchHandler()
+    }, [])
+
     const handleChange = event => {
         const {name, value} = event.target;
         dispatch(changeServiceField(name, value))
     }
 
     const handleSubmit = async (event) => {
-        console.log(items)
         event.preventDefault();
-         await fetch(process.env.REACT_APP_API_URL, {
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify({...items, id: `${match.id}`})
-        })
-        fetchServicesSuccess(dispatch);
+        // const itemsWithId = {...items, id: match.params.id}
+        console.log(JSON.stringify(items));
+        try {
+            await fetch(process.env.REACT_APP_API_URL, {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify(items)
+            })
+        } catch(err) {
+            console.log(err)
+        }
+        // fetchServicesSuccess(dispatch);
         dispatch(addServiceSuccess());
     }
 
