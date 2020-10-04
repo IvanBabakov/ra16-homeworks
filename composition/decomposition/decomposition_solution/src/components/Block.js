@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function Block(props) {
     return (
-        <div className={props.class}>
+        <div key={props.key} className={props.class}>
             {props.children}
         </div>
     )
