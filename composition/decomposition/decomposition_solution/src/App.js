@@ -4,62 +4,61 @@ import Main from './components/Main';
 
 function App() {
   const response = {
-    currentNews: [
+    allCurrentNews: [
       {
-          name: 'widget_1',
-          content: [
-              {
-                  icon: 'H',
-                  text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex animi laboriosam cum adipisci nam commodi distinctio, voluptates dolorum fuga.',
-                  link: 'google.com'
-              }
-          ]
+        name: 'Now in Mass Media',
+        content: [
+          {text:'', icon:'', href:''},
+          {text:'', icon:'', href:''},
+          {text:'', icon:'', href:''},
+          {text:'', icon:'', href:''},
+          {text:'', icon:'', href:''}
+        ]
       },
       {
-          name: 'widget_2',
-          content: [
-              {
-                  icon: 'IMG',
-                  text: 'Different Add'
-              }
-          ]
+        name: 'in Germany',
+        content: []
+      },
+      {
+        name: 'Our recommendation',
+        content: []
       }
-  ],
-  navLinks: [
+    ],
+    navLinks: [
       {
-          href: 'https://github.com/',
-          name: 'Видео'
+        href: 'https://github.com/',
+        name: 'Видео'
       },
       {
-          href: 'https://github.com/',
-          name: 'Картинки'
+        href: 'https://github.com/',
+        name: 'Картинки'
       },
       {
-          href: 'https://github.com/',
-          name: 'Карты'
+        href: 'https://github.com/',
+        name: 'Карты'
       },
       {
-          href: 'https://github.com/',
-          name: 'Маркет'
+        href: 'https://github.com/',
+        name: 'Маркет'
       }
-  ],
-  allWidgets: [
+    ],
+    allWidgets: [
       {
-          id: 1,
-          name: 'col_widget col_1',
-          conten: []
+        id: 1,
+        name: 'col_widget col_1',
+        conten: []
       },
       {
-          id: 2,
-          name: 'col_widget col_2',
-          conten: []
+        id: 2,
+        name: 'col_widget col_2',
+        conten: []
       },
       {
-          id: 3,
-          name: 'col_widget col_3',
-          conten: []
+        id: 3,
+        name: 'col_widget col_3',
+        conten: []
       }        
-  ]
+    ]
   }
   
   return (

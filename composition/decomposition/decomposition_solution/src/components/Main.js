@@ -13,7 +13,7 @@ function Main(props) {
     return (
         <React.Fragment>
             <div className="wrapper-section">
-                <News allNews={props.data.currentNews}/>
+                <News allNews={props.data.allCurrentNews}/>
             </div>   
             <div className="wrapper-section">
                 <Navigation list={props.data.navLinks}/>

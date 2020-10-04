@@ -8,26 +8,20 @@ import Block from './Block';
 
 function News(props) {
     const allNews = props.allNews;
+    const handleClick = () => {
+
+    }
     return (
         <section className='news-block'>
-            <div className='news_tabs'></div>
+            <div className='news_tabs'>
+                {
+                    allNews.map(el => <button className='news_tab' onClick={handleClick}>{el.name}</button>)
+                }
+            </div>
             <div className='news_panel'>
-                {allNews.map(el => 
-                    <div key={nanoid()} className={el.name}>
-                        {el.content.map(news =>
-                        <div key={nanoid()}>
-                            <i>
-                                {news.icon}
-                            </i>
-                            <Link link={news.link} class={news.class ? news.class : null}>
-                                <p>
-                                    {news.text}
-                                </p>
-                            </Link>
-                        </div> 
-                        )}  
-                    </div>
-                )}
+                {
+                    
+                }
             </div>
             <div className='current-exchange'></div>
         </section>
