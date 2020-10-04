@@ -2,7 +2,7 @@ import React from 'react';
 import {nanoid} from 'nanoid';
 import PropTypes from 'prop-types';
 import Link from './Link';
-import Block from './Block';
+
 
 //компонент отвечает за блок текущих новостей и курса валют
 
@@ -12,19 +12,27 @@ function News(props) {
 
     }
     return (
-        <section className='news-block'>
+        <div className='section_news'>
             <div className='news_tabs'>
                 {
-                    allNews.map(el => <button className='news_tab' onClick={handleClick}>{el.name}</button>)
+                    allNews.map(el => <div className='news_tab_wrapper'><a href='#' className='news_tab'>{el.name}</a></div>)
                 }
             </div>
             <div className='news_panel'>
-                {
-                    
-                }
+                <ul>
+                    {
+                        allNews[0].content.map(el => 
+                            <li key={nanoid()}>
+                                <Link linl={el.href}>
+                                    <p>{el.text}</p>
+                                </Link>
+                            </li>
+                        )
+                    }
+                </ul>
             </div>
             <div className='current-exchange'></div>
-        </section>
+        </div>
     )
 }
 

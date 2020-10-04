@@ -8,11 +8,11 @@ function App() {
       {
         name: 'Now in Mass Media',
         content: [
-          {text:'', icon:'', href:''},
-          {text:'', icon:'', href:''},
-          {text:'', icon:'', href:''},
-          {text:'', icon:'', href:''},
-          {text:'', icon:'', href:''}
+          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
+          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
+          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
+          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
+          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'}
         ]
       },
       {
@@ -58,7 +58,10 @@ function App() {
         name: 'col_widget col_3',
         conten: []
       }        
-    ]
+    ],
+    banner: {
+      content: []
+    }
   }
   
   return (

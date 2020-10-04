@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Block(props) {
+function Banner(props) {
     return (
-        <div>
+        <div className='section_banner'>
             
         </div>
     )
 }
 
-Block.propTypes = {
+Banner.propTypes = {
 
 }
 
-export default Block
+export default Banner
 

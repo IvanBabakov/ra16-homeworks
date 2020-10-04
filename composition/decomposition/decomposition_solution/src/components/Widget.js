@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 function Widget(props) {
     return (
-        <div >
+        <div className='section_widget'>
             <div className="weather-widget"></div>
             <div className="often_visited-widget"></div>
             <div className="map-widget"></div>
