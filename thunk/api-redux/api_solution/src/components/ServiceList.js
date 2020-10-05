@@ -36,7 +36,7 @@ function ServiceList({match}) {
                 {o.name}{o.price}
                 <button onClick={() => handleRemove(o.id)}>X</button>
                 <Link to={`${match.url}/${o.id}`}>
-                    <button onClick={() => handleEdit(o.name, o.price, o.id)}>Edit</button>
+                    <button>Edit</button>
                 </Link>
                 </li>)}
         </ul>

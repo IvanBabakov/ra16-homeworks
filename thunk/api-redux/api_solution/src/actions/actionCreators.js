@@ -1,7 +1,7 @@
 import {ADD_SERVICE_SUCCESS, ADD_SERVICE_ERROR, ADD_SERVICE_REQUEST, REMOVE_SERVICE, CHANGE_SERVICE_FIELD, EDITTING_SERVICE, FETCH_SERVICES_SUCCESS, FETCH_SERVICES_REQUEST, FETCH_SERVICES_ERROR} from './actionTypes';
 
-export function addServiceSuccess() {
-    return {type: ADD_SERVICE_SUCCESS};
+export function addServiceSuccess(newStatus) {
+    return {type: ADD_SERVICE_SUCCESS, payload: {newStatus}};
 }
 
 export function addServiceRequest() {

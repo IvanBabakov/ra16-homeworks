@@ -8,9 +8,7 @@ import Link from './Link';
 
 function News(props) {
     const allNews = props.allNews;
-    const handleClick = () => {
-
-    }
+    
     return (
         <div className='section_news'>
             <div className='news_tabs'>
@@ -22,8 +20,8 @@ function News(props) {
                 <ul>
                     {
                         allNews[0].content.map(el => 
-                            <li key={nanoid()}>
-                                <Link linl={el.href}>
+                            <li key={el.id}>
+                                <Link link={el.href}>
                                     <p>{el.text}</p>
                                 </Link>
                             </li>

@@ -8,7 +8,8 @@ const initialState = {
         content: ''
     },
     loading: false,
-    error: null
+    error: null,
+    status: null
 };
 
 export default function serviceAddReducer (state = initialState, action) {
@@ -17,7 +18,8 @@ export default function serviceAddReducer (state = initialState, action) {
             const {name, value} = action.payload;
             return {...state, items:{...state.items, [name]: value}};
         case ADD_SERVICE_SUCCESS:
-                return {...initialState}
+            const {newStatus} = action.payload
+            return {...initialState, status: newStatus}
         case ADD_SERVICE_REQUEST:
             return {...state, loading: true, error: null}
         case ADD_SERVICE_ERROR:
@@ -25,7 +27,7 @@ export default function serviceAddReducer (state = initialState, action) {
             return {...state, loading: false, error}
         case EDITTING_SERVICE:
             const {service} = action.payload;
-            return {...state, items: {...service}};
+            return {...state, items: {...service}, status: null};
         default:
             return state;
     }

@@ -8,11 +8,11 @@ function App() {
       {
         name: 'Now in Mass Media',
         content: [
-          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
-          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
-          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
-          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
-          {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'}
+          {id: 1, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
+          {id: 2, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
+          {id: 3, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
+          {id: 4, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
+          {id: 5, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'}
         ]
       },
       {

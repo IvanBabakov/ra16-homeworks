@@ -5,7 +5,7 @@ import {changeServiceField, addServiceSuccess, edittingService, fetchServicesSuc
 import PropTypes from 'prop-types'
 
 function ServiceAdd({match}) {
-    const {items} = useSelector(state => state.serviceAdd);
+    const {items, status} = useSelector(state => state.serviceAdd);
     
     const dispatch = useDispatch();
 
@@ -26,20 +26,22 @@ function ServiceAdd({match}) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // const itemsWithId = {...items, id: match.params.id}
-        console.log(JSON.stringify(items));
         try {
-            await fetch(process.env.REACT_APP_API_URL, {
+            const response = await fetch(process.env.REACT_APP_API_URL, {
                 method: 'POST',
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify(items)
             })
+            if(response.status) {
+                dispatch(addServiceSuccess(response.status));  
+            }
         } catch(err) {
             console.log(err)
         }
         // fetchServicesSuccess(dispatch);
-        dispatch(addServiceSuccess());
     }
+
+    console.log(status)
 
     return (
         <div>
@@ -56,7 +58,8 @@ function ServiceAdd({match}) {
                     Описание
                     <input name='content' onChange={handleChange} value={items.content}/>
                 </label>
-                <button type='submit'>Save</button>    
+                <button type='submit'>Save</button>
+                {status === 204 ? <Redirect to='/services'/> : null}   
             </form>
             <NavLink exact to='/services'><button>Cancel</button></NavLink>
         </div> 
