@@ -11,7 +11,7 @@ function Navigation(props) {
             <nav className='nav_bar'>
                 <ul className='nav_bar_list'>
                     {props.list.map(el => 
-                        <li key={nanoid()}>
+                        <li key={nanoid()} style={{display: 'inline-block'}}>
                             <Link items={el} />
                         </li>
                     )}

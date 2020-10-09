@@ -14,7 +14,7 @@ function News(props) {
         <div className='section_news'>
             <div className='news_tabs'>
                 {
-                    allNews.map(el => <div className='news_tab_wrapper'><Link items={el}/></div>)
+                    allNews.map(el => <div className='news_tab_wrapper' style={{display: 'inline-block'}}><Link items={el}/></div>)
                 }
             </div>
             <div className='news_panel'>

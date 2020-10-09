@@ -6,7 +6,8 @@ import PropTypes from 'prop-types'
 function SearchLine(props) {
     return (
         <div className='section_search-line'>
-            
+            <input type="text"/>
+            <button>Искать</button>
         </div>
     )
 }
