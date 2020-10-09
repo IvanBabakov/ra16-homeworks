@@ -7,6 +7,7 @@ function App() {
     allCurrentNews: [
       {
         name: 'Now in Mass Media',
+        href: '#',
         content: [
           {id: 1, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
           {id: 2, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga.', icon:'', href:'#'},
@@ -17,10 +18,12 @@ function App() {
       },
       {
         name: 'in Germany',
+        href: '#',
         content: []
       },
       {
         name: 'Our recommendation',
+        href: '#',
         content: []
       }
     ],
@@ -45,17 +48,27 @@ function App() {
     allWidgets: [
       {
         id: 1,
-        name: 'col_widget col_1',
+        name: 'Погода',
         conten: []
       },
       {
         id: 2,
-        name: 'col_widget col_2',
+        name: 'Посещаемое',
         conten: []
       },
       {
         id: 3,
-        name: 'col_widget col_3',
+        name: 'Карта Германии',
+        conten: []
+      },
+      {
+        id: 4,
+        name: 'Телепрограмма',
+        conten: []
+      },
+      {
+        id: 5,
+        name: 'Эфир',
         conten: []
       }        
     ],

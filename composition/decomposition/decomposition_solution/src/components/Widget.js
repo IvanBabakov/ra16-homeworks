@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from './Link'
 
-//компонент формирует блок пользовательских виджетов (погоды, программы тв и тд)
+//компонент рендерит виджет (погоды, программы тв и тд)
 
 function Widget(props) {
     return (
-        <div className='section_widget'>
-            <div className="weather-widget"></div>
-            <div className="often_visited-widget"></div>
-            <div className="map-widget"></div>
-            <div className="tv_program-widget"></div>
-            <div className="live-widget"></div>
+        <div>
+            {props.title ? <h2>{props.title}</h2> : null}
+            <div>
+                {props.data ? props.data.map(el => <Link link={el.href} img = {el.img ? el.img : null}>{el.text}</Link>) : 'Ничего нет'}
+            </div>
         </div>
     )
 }

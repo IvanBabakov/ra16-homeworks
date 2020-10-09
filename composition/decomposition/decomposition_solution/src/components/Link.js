@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// компонент отвечает за формирование всех ссылок
+// компонент отвечает за рендер ссылок
 
 function Link(props) {
     return (
-            <a href={props.link} className={props.class}>{props.children ? props.children : props.name ? props.name : null}</a>
+            <div>
+                {props.img ? <img src={props.img.link} alt={props.img.title}/> : null}
+                {props.time ? <span>{props.time}</span> : null}
+                <a href={props.link}>{props.children ? props.children : props.name ? props.name : null}</a>
+            </div>
     )
 }
 
