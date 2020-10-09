@@ -14,7 +14,7 @@ function News(props) {
         <div className='section_news'>
             <div className='news_tabs'>
                 {
-                    allNews.map(el => <div className='news_tab_wrapper'><Link link={el.href}>{el.name}</Link></div>)
+                    allNews.map(el => <div className='news_tab_wrapper'><Link items={el}/></div>)
                 }
             </div>
             <div className='news_panel'>
@@ -22,7 +22,7 @@ function News(props) {
                     {
                         allNews[0].content.map(el => 
                             <li key={el.id}>
-                                <Link link={el.href}>
+                                <Link items={el}>
                                     <p>{el.text}</p>
                                 </Link>
                             </li>

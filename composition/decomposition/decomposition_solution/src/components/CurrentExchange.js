@@ -9,9 +9,7 @@ function CurrentExchange(props) {
         <div className='current-exchange'>
             {props.dataExchange.map(el => 
                 <div>    
-                    <Link link={el.href}>
-                        {el.name ? el.name : null}
-                    </Link>
+                    <Link items={el} />
                     {el.currValue ? <span>{el.currValue}</span> : null}
                     {el.currChange ? <span>{el.currChange}</span> : null}
                 </div>

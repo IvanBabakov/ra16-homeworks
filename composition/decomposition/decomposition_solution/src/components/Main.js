@@ -26,7 +26,7 @@ function Main(props) {
                 <Banner content={props.data.banner}/>
             </div>   
             <div className="wrapper-section_widget">
-                {props.data.allWidgets.map(widget => <Widget title={widget.name} data={widget.content}/>)}
+                {props.data.allWidgets.map(widget => <Widget data={widget}/>)}
             </div>   
         </React.Fragment>
     )

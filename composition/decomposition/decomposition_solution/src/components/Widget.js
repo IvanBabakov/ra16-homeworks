@@ -7,9 +7,9 @@ import Link from './Link'
 function Widget(props) {
     return (
         <div>
-            {props.title ? <h2>{props.title}</h2> : null}
+            {props.data.name ? <h2>{props.data.name}</h2> : null}
             <div>
-                {props.data ? props.data.map(el => <Link link={el.href} img = {el.img ? el.img : null}>{el.text}</Link>) : 'Ничего нет'}
+                {props.data.content ? props.data.content.map(el => <Link items={el} />) : 'Ничего нет'}
             </div>
         </div>
     )

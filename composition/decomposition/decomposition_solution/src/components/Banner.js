@@ -7,9 +7,7 @@ import Link from './Link';
 function Banner(props) {
     return (
         <div className='section_banner'>
-            <Link link={props.content.href}>
-                {props.content.img ? <img src={props.content.img.href} alt={props.content.img.title}/> : null}
-            </Link>
+            <Link items={props.content} />
         </div>
     )
 }

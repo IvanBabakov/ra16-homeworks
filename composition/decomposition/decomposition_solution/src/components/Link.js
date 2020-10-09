@@ -6,9 +6,9 @@ import PropTypes from 'prop-types'
 function Link(props) {
     return (
             <div>
-                {props.img ? <img src={props.img.link} alt={props.img.title}/> : null}
-                {props.time ? <span>{props.time}</span> : null}
-                <a href={props.link}>{props.children ? props.children : props.name ? props.name : null}</a>
+                {props.items.img ? <img src={props.items.img.href} alt={props.items.img.title}/> : null}
+                {props.items.time ? <span>{props.items.time}</span> : null}
+                <a href={props.items.href}>{props.children ? props.children : props.items.name ? props.items.name : null}</a>
             </div>
     )
 }
