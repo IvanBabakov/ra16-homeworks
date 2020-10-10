@@ -17,11 +17,22 @@ function ServiceList({match}) {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        console.log('I am THERE')
         fetchhendler(dispatch)
     }, [dispatch])
 
     const handleRemove = id => {
-        dispatch(removeService(id))
+        const fetchRemove = async (id) => {
+            const response = await fetch(process.env.REACT_APP_API_URL+`/${id}`,{
+                method: 'DELETE',
+                headers: {'Content-Type' : 'application/json'}
+            });
+            if(response.status === 204) {
+                fetchhendler(dispatch)
+            }
+        }
+        fetchRemove(id);
+        // dispatch(removeService(id))
     }
 
     const handleEdit = (name, price, id) => {

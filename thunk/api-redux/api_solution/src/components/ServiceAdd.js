@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import {BrowserRouter as Link, Redirect, NavLink} from 'react-router-dom';
+import {BrowserRouter as Redirect, NavLink} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import {changeServiceField, addServiceSuccess, edittingService, fetchServicesSuccess} from '../actions/actionCreators'
+import {changeServiceField, addServiceSuccess, edittingService} from '../actions/actionCreators'
 import PropTypes from 'prop-types'
 
 function ServiceAdd({match}) {
@@ -33,15 +33,19 @@ function ServiceAdd({match}) {
                 body: JSON.stringify(items)
             })
             if(response.status) {
+                console.log(response.status)
                 dispatch(addServiceSuccess(response.status));  
             }
         } catch(err) {
-            console.log(err)
+            console.log(err);
+
         }
         // fetchServicesSuccess(dispatch);
     }
 
-    console.log(status)
+    if(status === 204) {
+        return <Redirect to='/services'/>
+    }
 
     return (
         <div>
@@ -59,10 +63,10 @@ function ServiceAdd({match}) {
                     <input name='content' onChange={handleChange} value={items.content}/>
                 </label>
                 <button type='submit'>Save</button>
-                {status === 204 ? <Redirect to='/services'/> : null}   
+                
             </form>
             <NavLink exact to='/services'><button>Cancel</button></NavLink>
-        </div> 
+        </div>
     )
 }
 

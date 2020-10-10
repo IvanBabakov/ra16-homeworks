@@ -73,7 +73,8 @@ function App() {
       }        
     ],
     banner: {
-      content: []
+      image: {href: '#', title: 'about'},
+      adverLink: {href:'#', title: 'Company'}
     }
   }
   

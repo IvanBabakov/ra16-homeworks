@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Block from './Block';
 import News from './News';
 import Navigation from './Navigation';
 import Widget from './Widget';
@@ -23,7 +22,7 @@ function Main(props) {
                 <SearchLine />
             </div>   
             <div className="wrapper-section_banner">
-                <Banner content={props.data.banner}/>
+                <Banner data={props.data.banner}/>
             </div>   
             <div className="wrapper-section_widget">
                 {props.data.allWidgets.map(widget => <Widget data={widget}/>)}

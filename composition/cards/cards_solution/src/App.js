@@ -1,6 +1,4 @@
 import React from 'react';
-import CardOne from './components/CardOne';
-import CardTwo from './components/CardTwo';
 import Card from './components/Card';
 
 function App() {
