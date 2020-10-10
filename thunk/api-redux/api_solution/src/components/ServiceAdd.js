@@ -52,7 +52,10 @@ function ServiceAdd({match}) {
 
     if(status === 204) {
         history.goBack();
+        dispatch(addServiceSuccess(null))
     }
+
+    console.log(status)
 
     return (
         <div>
