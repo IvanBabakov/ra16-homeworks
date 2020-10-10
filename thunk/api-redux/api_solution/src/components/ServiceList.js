@@ -1,14 +1,18 @@
 import React, {useEffect} from 'react';
 import {BrowserRouter as Route, Link} from 'react-router-dom';
 import { useSelector, useDispatch} from 'react-redux';
-import ServiceAdd from './ServiceAdd';
-import {removeService, edittingService, fetchServicesSuccess} from '../actions/actionCreators';
+import {fetchServicesError, fetchServicesRequest, fetchServicesSuccess} from '../actions/actionCreators';
 import PropTypes from 'prop-types'
 
 export  const fetchhendler = async (dispatch) => {
-    const response = await fetch(process.env.REACT_APP_API_URL);
-    const services = await response.json();
-    dispatch(fetchServicesSuccess(services));
+    try {
+        dispatch(fetchServicesRequest());
+        const response = await fetch(process.env.REACT_APP_API_URL);
+        const services = await response.json();
+        dispatch(fetchServicesSuccess(services));   
+    } catch (error) {
+        dispatch(fetchServicesError())
+    }
 }
 
 function ServiceList({match}) {
@@ -17,41 +21,47 @@ function ServiceList({match}) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('I am THERE')
         fetchhendler(dispatch)
     }, [dispatch])
 
     const handleRemove = id => {
-        const fetchRemove = async (id) => {
-            const response = await fetch(process.env.REACT_APP_API_URL+`/${id}`,{
-                method: 'DELETE',
-                headers: {'Content-Type' : 'application/json'}
-            });
-            if(response.status === 204) {
-                fetchhendler(dispatch)
+        try{
+            const fetchRemove = async (id) => {
+                const response = await fetch(process.env.REACT_APP_API_URL+`/${id}`,{
+                    method: 'DELETE',
+                    headers: {'Content-Type' : 'application/json'}
+                });
+                if(response.status === 204) {
+                    fetchhendler(dispatch)
+                }
             }
+            fetchRemove(id);
+        } catch(err) {
+            console.log(err)
         }
-        fetchRemove(id);
-        // dispatch(removeService(id))
     }
 
-    const handleEdit = (name, price, id) => {
-        console.log(name, price)
-        // dispatch(edittingService(name, price, id));
+    if(loading) {
+        return <div><h1>Loadding...</h1></div>
+    }
+
+    if(error) {
+        return <div><h1>Ошибка</h1></div>
     }
 
     return (
         <div>
-        <ul>
-            {items.map(o => <li key={o.id}>
-                {o.name}{o.price}
-                <button onClick={() => handleRemove(o.id)}>X</button>
-                <Link to={`${match.url}/${o.id}`}>
-                    <button>Edit</button>
-                </Link>
-                </li>)}
-        </ul>
-        {/* <Route exact path={`${match.url}/edit`} component={ServiceAdd} /> */}
+            <ul>
+                {items.map(o => 
+                    <li key={o.id}>
+                        {o.name}{o.price}
+                        <button onClick={() => handleRemove(o.id)}>X</button>
+                        <Link to={`${match.url}/${o.id}`}>
+                            <button>Edit</button>
+                        </Link>
+                    </li>
+                )}
+            </ul>
         </div>
     )
 }

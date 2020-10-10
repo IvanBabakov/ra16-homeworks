@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import './App.css';
 import ServiceAdd from './components/ServiceAdd';
@@ -10,8 +10,6 @@ function App() {
       <Redirect from='/' to='/services'/>
       <Route exact path='/services' component={ServiceList}/>
       <Route exact path='/services/:id' component={ServiceAdd} />
-        {/* <ServiceAdd /> */}
-        {/* <ServiceList /> */}
     </Router>
   );
 }

@@ -12,7 +12,7 @@ export default function serviceListReducer(state = initialState, action) {
             const {id} = action.payload;
             return state.filter(service => service.id !== id);
         case FETCH_SERVICES_REQUEST:
-            return {... state, loading: true, error: null}
+            return {...state, loading: true, error: null}
         case FETCH_SERVICES_ERROR:
             const {error} = action.payload;
             return { ...state, loading: false, error}

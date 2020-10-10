@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {BrowserRouter as Redirect, NavLink} from 'react-router-dom';
+import {BrowserRouter as Route, useHistory} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {changeServiceField, addServiceSuccess, edittingService} from '../actions/actionCreators'
 import PropTypes from 'prop-types'
@@ -8,15 +8,19 @@ function ServiceAdd({match}) {
     const {items, status} = useSelector(state => state.serviceAdd);
     
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
-        const fetchHandler = async () => {
-        const response = await fetch(process.env.REACT_APP_API_URL+`/${match.params.id}`);
-        const service = await response.json();
-        dispatch(edittingService(service));
-        console.log(service)
+        try{
+            const fetchHandler = async () => {
+            const response = await fetch(process.env.REACT_APP_API_URL+`/${match.params.id}`);
+            const service = await response.json();
+            dispatch(edittingService(service));
+            }
+            fetchHandler();
+        } catch(err) {
+            console.log(err);
         }
-        fetchHandler()
     }, [])
 
     const handleChange = event => {
@@ -33,18 +37,21 @@ function ServiceAdd({match}) {
                 body: JSON.stringify(items)
             })
             if(response.status) {
-                console.log(response.status)
-                dispatch(addServiceSuccess(response.status));  
+                dispatch(addServiceSuccess(response.status)); 
             }
         } catch(err) {
             console.log(err);
 
         }
-        // fetchServicesSuccess(dispatch);
+    }
+
+    const handleCancel = () => {
+        dispatch(edittingService());
+        history.goBack();
     }
 
     if(status === 204) {
-        return <Redirect to='/services'/>
+        history.goBack();
     }
 
     return (
@@ -63,9 +70,8 @@ function ServiceAdd({match}) {
                     <input name='content' onChange={handleChange} value={items.content}/>
                 </label>
                 <button type='submit'>Save</button>
-                
             </form>
-            <NavLink exact to='/services'><button>Cancel</button></NavLink>
+            <button onClick={handleCancel}>Cancel</button>
         </div>
     )
 }
