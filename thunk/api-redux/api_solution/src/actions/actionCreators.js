@@ -8,8 +8,8 @@ export function addServiceRequest() {
     return {type: ADD_SERVICE_REQUEST};
 }
 
-export function addServiceError(err) {
-    return {type: ADD_SERVICE_ERROR, payload: {err}};
+export function addServiceError() {
+    return {type: ADD_SERVICE_ERROR};
 }
 
 export function edittingService(service) {
@@ -32,6 +32,6 @@ export function fetchServicesRequest() {
     return {type: FETCH_SERVICES_REQUEST}
 }
 
-export function fetchServicesError(err) {
-    return {type: FETCH_SERVICES_ERROR, payload: {err}}
+export function fetchServicesError() {
+    return {type: FETCH_SERVICES_ERROR}
 }

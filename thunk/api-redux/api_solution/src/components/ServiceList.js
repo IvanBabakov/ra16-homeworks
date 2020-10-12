@@ -11,7 +11,7 @@ export  const fetchhendler = async (dispatch) => {
         const services = await response.json();
         dispatch(fetchServicesSuccess(services));   
     } catch (error) {
-        dispatch(fetchServicesError())
+        dispatch(fetchServicesError());
     }
 }
 
@@ -27,41 +27,63 @@ function ServiceList({match}) {
     const handleRemove = id => {
         try{
             const fetchRemove = async (id) => {
+                dispatch(fetchServicesRequest());
                 const response = await fetch(process.env.REACT_APP_API_URL+`/${id}`,{
                     method: 'DELETE',
                     headers: {'Content-Type' : 'application/json'}
                 });
-                if(response.status === 204) {
+                if(response.status >= 200 && response.status < 300) {
                     fetchhendler(dispatch)
-                }
+                } else {
+                    let error = new Error(response.statusText);
+                    throw error;
+                } 
             }
             fetchRemove(id);
         } catch(err) {
             console.log(err)
+            dispatch(fetchServicesError());
         }
     }
 
     if(loading) {
-        return <div><h1>Loadding...</h1></div>
+        return  <div className='loadding'>
+                    <div className="spinner-wrapper">
+                        <div className='spinner'></div>
+                    </div>
+                </div>
     }
 
     if(error) {
-        return <div><h1>Ошибка</h1></div>
+        return  <div className='error'>
+                    <div className="error-wrapper">
+                        <h1 className='error-text'>Произошла ошибка!</h1>
+                    </div>
+                </div>
     }
 
     return (
-        <div>
-            <ul>
-                {items.map(o => 
-                    <li key={o.id}>
-                        {o.name}{o.price}
-                        <button onClick={() => handleRemove(o.id)}>X</button>
-                        <Link to={`${match.url}/${o.id}`}>
-                            <button>Edit</button>
-                        </Link>
-                    </li>
-                )}
-            </ul>
+        <div className='wrapper'>
+            <div className='services_list-wrapper'>
+                <ul className='services_list'>
+                    {items.map(o => 
+                        <li className='services_list-item' key={o.id}>
+                            <div className="item-text_block">
+                                <p>
+                                    <span>{o.name}:</span>
+                                    <span>{o.price} руб.</span>
+                                </p>
+                            </div>
+                            <div className="item-control_block">
+                                <button className='remove-button' onClick={() => handleRemove(o.id)}>X</button>
+                                <Link to={`${match.url}/${o.id}`}>
+                                    <button className='edit-button'>Edt</button>
+                                </Link>
+                            </div>
+                        </li>
+                    )}
+                </ul>
+            </div>
         </div>
     )
 }

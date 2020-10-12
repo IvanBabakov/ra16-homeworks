@@ -37,21 +37,111 @@
   }
 }
 
-.main-wrapper {
-  max-width: 1200px;
-  /* text-align: center; */
-}
-
-.main-wrapper form {
-  max-width: 600px;
-}
-
 .item-form {
-  max-width: 300px;
   display: block;
-  /* text-align: center; */
 }
 
 .item-form input {
   display: block;
+}
+
+.wrapper, .loadding, .error {
+  text-align: center;
+}
+
+.error-text {
+  margin: 10px;
+  padding: 15px 100px;
+  background-color: pink;
+  color: palevioletred;
+  border: 1px solid  palevioletred;
+  border-radius: 5px;
+}
+
+.spinner-wrapper {
+  margin: 30px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 5px solid transparent;
+  border-left: 5px solid  rgb(219, 58, 72);
+  border-right: 5px solid  rgb(219, 58, 72);
+  border-bottom: 5px solid  rgb(219, 58, 72);
+  border-radius: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+.services_list-wrapper, .editting_form-wrapper, .spinner-wrapper, .error-wrapper {
+  display: inline-block;
+  max-width: 700px;
+  text-align: left;
+}
+
+.services_list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  border: 1px solid rgb(240, 241, 242);
+  border-bottom: none;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.services_list-item:last-child {
+  border-bottom: 1px solid rgb(240, 241, 242);
+}
+
+.services_list-item p {
+  display: inline-block;
+}
+
+.services_list-item p span {
+  margin-left: 10px;
+}
+
+ .item-text_block {
+  margin-right: 80px;
+}
+
+.item-control_block button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: azure;
+  background-color: rgb(219, 58, 72);
+}
+
+.item-form {
+  margin-bottom: 20px;
+}
+
+.item-form input {
+  border: 1px solid rgb(240, 241, 242);
+  margin-top: 10px;
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.editting_form {
+  margin-top: 10px;
+}
+
+.editting_form button {
+  background-color: rgb(219, 58, 72);
+  color: azure;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
 }

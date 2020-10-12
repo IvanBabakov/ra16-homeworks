@@ -14,8 +14,8 @@ export default function serviceListReducer(state = initialState, action) {
         case FETCH_SERVICES_REQUEST:
             return {...state, loading: true, error: null}
         case FETCH_SERVICES_ERROR:
-            const {error} = action.payload;
-            return { ...state, loading: false, error}
+            // const {error} = action.payload;
+            return { ...state, loading: false, error: true}
         case FETCH_SERVICES_SUCCESS:
             const {items} = action.payload;
             return {

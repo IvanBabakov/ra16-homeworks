@@ -23,12 +23,12 @@ export default function serviceAddReducer (state = initialState, action) {
         case ADD_SERVICE_REQUEST:
             return {...state, loading: true, error: null}
         case ADD_SERVICE_ERROR:
-            const {error} = action.payload;
-            return {...state, loading: false, error}
+            // const {error} = action.payload;
+            return {...state, loading: false, error: true}
         case EDITTING_SERVICE:
             const {service} = action.payload;
             if(service !== undefined) {
-                return {...state, items: {...service}, status: null};
+                return {...state, items: {...service},loading: false, status: null};
             } else {
                 return {...initialState}
             }
