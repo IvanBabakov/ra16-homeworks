@@ -1,25 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import './App.css';
+import ServiceEdit from './components/ServiceEdit';
+import ServiceList from './components/ServicesList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Redirect from='/' to='/services'/>
+      <Route exact path='/services' component={ServiceList}/>
+      <Route exact path='/services/:id' component={ServiceEdit} />
+    </Router>
   );
 }
 
